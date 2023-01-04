@@ -5,7 +5,9 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { AsciiEffect } from 'three-stdlib'
 
 function Torusknot(props) {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const ref = useRef()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useFrame((state, delta) => (ref.current.rotation.x = ref.current.rotation.y += delta / 2))
   return (
     <mesh {...props} ref={ref}>
@@ -115,6 +117,7 @@ function AsciiRenderer({ renderIndex = 1, characters = ' .:-+*=&@#', ...options 
   }, [effect, size])
 
   // Take over render-loop (that is what the index is for)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useFrame((state) => {
     effect.render(scene, camera)
     // eslint-disable-next-line react-hooks/exhaustive-deps
